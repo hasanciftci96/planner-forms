@@ -5,6 +5,8 @@ import './App.css';
 import Nav from './Nav'
 import ContactsList from './Components/Contacts/ContactsList'
 import AppointmentsList from './Components/Appointments/AppointmentsList'
+import ContactForm from './Components/Contacts/ContactForm'
+import AppointmentForm from './Components/Appointments/AppointmentForm'
 
 const fakeContacts = [
   {
@@ -42,6 +44,7 @@ const fakeAppointments = [
 //    it also resets the form maybe? check if required. If so use something similar to thoughtsRef.current.value = null on thoughts project
 //useContacts'i component level'da parcala ve listeye ekle .map kullanarak
 
+//form elementinde tasicaz contact isimlerini 
 
 function App() {
 
@@ -65,9 +68,11 @@ function App() {
         <Nav />
         <h1>Hello world</h1>
         <div>
+          <ContactForm />
           <ContactsList contacts={contacts} deleteContact={deleteContact} />
         </div>
         <div>
+          <AppointmentForm />
           <AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment}/>
         </div>
       </div>

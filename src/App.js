@@ -67,12 +67,17 @@ function App() {
 
   //For Appointments.js form submission
   const [title, setTitle] = useState('')
+  const [companion, setCompanion] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   
   const handleTitleChange = event => {
       setTitle(event.target.value)
   };
+
+  const handleCompanionChange = event => {
+    setCompanion(event.target.value)
+};
 
   const handleDateChange = event => {
       setDate(event.target.value)
@@ -135,12 +140,12 @@ function App() {
         <div>
           <AppointmentForm 
           title={title}
-          name={name}
+          companion={companion}
           date={date}
           time={time}
           contacts={contacts}
           handleTitleChange={handleTitleChange}
-          handleNameChange={handleNameChange}
+          handleCompanionChange={handleCompanionChange}
           handleDateChange={handleDateChange}
           handleTimeChange={handleTimeChange}
           HandleSubmitAppointments={HandleSubmitAppointments}

@@ -123,35 +123,36 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <h1>Hello world</h1>
-        <div>
-          <ContactForm 
-          name={name}
-          phone={phone}
-          email={email}
-          handleNameChange={handleNameChange}
-          handlePhoneChange={handlePhoneChange}
-          handleEmailChange={handleEmailChange}
-          handleSubmitContacts={handleSubmitContacts}
-          />
-          <ContactsList contacts={contacts} deleteContact={deleteContact} />
-        </div>
+        <Switch>
+          <Route path='/contacts'>
+            <ContactForm 
+            name={name}
+            phone={phone}
+            email={email}
+            handleNameChange={handleNameChange}
+            handlePhoneChange={handlePhoneChange}
+            handleEmailChange={handleEmailChange}
+            handleSubmitContacts={handleSubmitContacts}
+            />
+            <ContactsList contacts={contacts} deleteContact={deleteContact} />
+          </Route>
 
-        <div>
-          <AppointmentForm 
-          title={title}
-          companion={companion}
-          date={date}
-          time={time}
-          contacts={contacts}
-          handleTitleChange={handleTitleChange}
-          handleCompanionChange={handleCompanionChange}
-          handleDateChange={handleDateChange}
-          handleTimeChange={handleTimeChange}
-          HandleSubmitAppointments={HandleSubmitAppointments}
-          />
-          <AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment}/>
-        </div>
+          <Route path='/appointments'>
+            <AppointmentForm 
+            title={title}
+            companion={companion}
+            date={date}
+            time={time}
+            contacts={contacts}
+            handleTitleChange={handleTitleChange}
+            handleCompanionChange={handleCompanionChange}
+            handleDateChange={handleDateChange}
+            handleTimeChange={handleTimeChange}
+            HandleSubmitAppointments={HandleSubmitAppointments}
+            />
+            <AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment}/>
+          </Route>
+        </Switch>
       </div>
     </Router>
   );

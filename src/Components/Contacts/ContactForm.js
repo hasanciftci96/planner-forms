@@ -1,13 +1,5 @@
 import React, {useState} from 'react'
 
-
-
-
-//action keyword istedigin "/afdad" adresine bir post request yolluyor      action="/example.html"
-// name="first-text-field" value="already pre-filled">  'da name'i herzaman koy bu galiba key oluyor json'daki, value kutunun icinde hazir doldurulmus alan ornek input ile
-//datalist yap user name'ler icin
-
-
 export default function ContactForm(props) {
 
     const {

@@ -1,34 +1,20 @@
 import React, {useState} from 'react'
 
-export default function AppointmentForm() {
+export default function AppointmentForm(props) {
 
-    const [title, setTitle] = useState('')
-    const [date, setDate] = useState('')
-    const [time, setTime] = useState('')
-    
-    const handleTitleChange = event => {
-        setTitle(event.target.value)
-    };
-
-    const handleDateChange = event => {
-        setDate(event.target.value)
-    };
-
-    const handleTimeChange = event => {
-        setTime(event.target.value)
-    };
-    
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert(`Your state values: \n 
-                title: ${title} \n 
-                time: ${time} \n
-                You can replace this alert with your process`);
-      };
+    const {
+        title,
+        date,
+        time,
+        handleTitleChange,
+        handleDateChange,
+        handleTimeChange,
+        AppointmentHandleSubmit
+    } = props
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={AppointmentHandleSubmit}>
                 <div>
                     <label>Appointment Title</label>
                     <input type='text' name="title" value={title} onChange={handleTitleChange} required/>

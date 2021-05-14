@@ -8,31 +8,17 @@ import React, {useState} from 'react'
 //datalist yap user name'ler icin
 
 
-export default function ContactForm() {
+export default function ContactForm(props) {
 
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    
-    const handleNameChange = event => {
-        setName(event.target.value)
-    };
-
-    const handlePhoneChange = event => {
-        setPhone(event.target.value)
-    };
-
-    const handleEmailChange = event => {
-        setEmail(event.target.value)
-    };
-    
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert(`Your state values: \n 
-                name: ${name} \n 
-                email: ${email} \n
-                You can replace this alert with your process`);
-      };
+    const {
+        name,
+        phone,
+        email,
+        handleNameChange,
+        handlePhoneChange,
+        handleEmailChange,
+        handleSubmit
+    } = props
 
     return (
         <div>

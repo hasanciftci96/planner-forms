@@ -48,11 +48,9 @@ const fakeAppointments = [
 
 function App() {
 
+  //Higher level stuff
   const [contacts, setContacts] = useState(fakeContacts)
   const [appointments, setAppointments] = useState(fakeAppointments)
-
-
-
 
   function deleteContact(id) {
     setContacts(prev => prev.filter(contact => (contact.id !== id)))
@@ -61,6 +59,56 @@ function App() {
     setAppointments(prev => prev.filter(appointment => (appointment.id !== id)))
   }
 
+  //For Appointments.js form submission
+  const [title, setTitle] = useState('')
+  const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
+  
+  const handleTitleChange = event => {
+      setTitle(event.target.value)
+  };
+
+  const handleDateChange = event => {
+      setDate(event.target.value)
+  };
+
+  const handleTimeChange = event => {
+      setTime(event.target.value)
+  };
+  
+  const AppointmentHandleSubmit = event => {
+      event.preventDefault();
+      alert(`Your state values: \n 
+              title: ${title} \n 
+              time: ${time} \n
+              You can replace this alert with your process`);
+    };
+
+  //for Contacts.js form submission
+
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  
+  const handleNameChange = event => {
+      setName(event.target.value)
+  };
+
+  const handlePhoneChange = event => {
+      setPhone(event.target.value)
+  };
+
+  const handleEmailChange = event => {
+      setEmail(event.target.value)
+  };
+  
+  const handleSubmit = event => {
+      event.preventDefault();
+      alert(`Your state values: \n 
+              name: ${name} \n 
+              email: ${email} \n
+              You can replace this alert with your process`);
+    };
 
   return (
     <Router>
@@ -68,11 +116,28 @@ function App() {
         <Nav />
         <h1>Hello world</h1>
         <div>
-          <ContactForm />
+          <ContactForm 
+          name={name}
+          phone={phone}
+          email={email}
+          handleNameChange={handleNameChange}
+          handlePhoneChange={handlePhoneChange}
+          handleEmailChange={handleEmailChange}
+          handleSubmit={handleSubmit}
+          />
           <ContactsList contacts={contacts} deleteContact={deleteContact} />
         </div>
+
         <div>
-          <AppointmentForm />
+          <AppointmentForm 
+          title={title}
+          date={date}
+          time={time}
+          handleTitleChange={handleTitleChange}
+          handleDateChange={handleDateChange}
+          handleTimeChange={handleTimeChange}
+          AppointmentHandleSubmit={AppointmentHandleSubmit}
+          />
           <AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment}/>
         </div>
       </div>

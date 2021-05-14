@@ -9,12 +9,12 @@ export default function AppointmentForm(props) {
         handleTitleChange,
         handleDateChange,
         handleTimeChange,
-        AppointmentHandleSubmit
+        HandleSubmitAppointments
     } = props
 
     return (
         <div>
-            <form onSubmit={AppointmentHandleSubmit}>
+            <form onSubmit={HandleSubmitAppointments}>
                 <div>
                     <label>Appointment Title</label>
                     <input type='text' name="title" value={title} onChange={handleTitleChange} required/>

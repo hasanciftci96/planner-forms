@@ -17,12 +17,12 @@ export default function ContactForm(props) {
         handleNameChange,
         handlePhoneChange,
         handleEmailChange,
-        handleSubmit
+        handleSubmitContacts
     } = props
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitContacts}>
                 <div>
                     <label>Contact Name</label>
                     <input type='text' name='name' value={name} onChange={handleNameChange} required/>

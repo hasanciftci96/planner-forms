@@ -11,40 +11,42 @@ import AppointmentForm from './Components/Appointments/AppointmentForm'
 const fakeContacts = [
   {
     id: 1,
-    fullName: "Ervin Howell",
+    name: "Ervin Howell",
     phone: 1111111111,
-    contactEmail: "1@gmail.com"
+    email: "1@gmail.com"
   },
   {
     id: 2,
-    fullName: "Leanne Graham",
+    name: "Leanne Graham",
     phone: 22222222222,
-    contactEmail: "2@gmail.com"
+    email: "2@gmail.com"
   }
 ]
 
 const fakeAppointments = [
   {
     id: 1,
-    Title: "Breakfast Reservation",
-    Date: '04/12/2022',
-    Time: "12:23"
+    title: "Breakfast Reservation",
+    date: '04/12/2022',
+    time: "12:23"
   },
   {
     id: 2,
-    Title: "Dinner Reservation",
-    Date: '10/12/2050',
-    Time: "20:23"
+    title: "Dinner Reservation",
+    date: '10/12/2050',
+    time: "20:23"
   }
 ]
 
+const generateId = () => {
+  let s4 = () => {
+      return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
 
-//first the user fills out a form
-//onsubmit saves all the values written to the form to useContacts state
-//    it also resets the form maybe? check if required. If so use something similar to thoughtsRef.current.value = null on thoughts project
-//useContacts'i component level'da parcala ve listeye ekle .map kullanarak
-
-//form elementinde tasicaz contact isimlerini 
 
 function App() {
 
@@ -58,6 +60,8 @@ function App() {
   function deleteAppointment(id) {
     setAppointments(prev => prev.filter(appointment => (appointment.id !== id)))
   }
+
+
 
   //For Appointments.js form submission
   const [title, setTitle] = useState('')
@@ -76,16 +80,15 @@ function App() {
       setTime(event.target.value)
   };
   
-  const AppointmentHandleSubmit = event => {
+  const HandleSubmitAppointments = event => {
       event.preventDefault();
-      alert(`Your state values: \n 
-              title: ${title} \n 
-              time: ${time} \n
-              You can replace this alert with your process`);
+      setAppointments(prevAppointments => {
+        return [{id: generateId(), title: title, date: date, time: time}, ...prevAppointments]
+      })
     };
 
-  //for Contacts.js form submission
 
+  //for Contacts.js form submission
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -102,12 +105,11 @@ function App() {
       setEmail(event.target.value)
   };
   
-  const handleSubmit = event => {
+  const handleSubmitContacts = event => {
       event.preventDefault();
-      alert(`Your state values: \n 
-              name: ${name} \n 
-              email: ${email} \n
-              You can replace this alert with your process`);
+      setContacts(prevContacts => {
+        return [{ id:generateId(), name: name, phone: phone, email: email}, ...prevContacts]
+      })
     };
 
   return (
@@ -123,7 +125,7 @@ function App() {
           handleNameChange={handleNameChange}
           handlePhoneChange={handlePhoneChange}
           handleEmailChange={handleEmailChange}
-          handleSubmit={handleSubmit}
+          handleSubmitContacts={handleSubmitContacts}
           />
           <ContactsList contacts={contacts} deleteContact={deleteContact} />
         </div>
@@ -136,7 +138,7 @@ function App() {
           handleTitleChange={handleTitleChange}
           handleDateChange={handleDateChange}
           handleTimeChange={handleTimeChange}
-          AppointmentHandleSubmit={AppointmentHandleSubmit}
+          HandleSubmitAppointments={HandleSubmitAppointments}
           />
           <AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment}/>
         </div>

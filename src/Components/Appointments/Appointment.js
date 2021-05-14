@@ -9,9 +9,9 @@ export default function Appointment({appointment, deleteAppointment}) {
     return (
         <div>
             <label>
-                <h5>{appointment.Title}</h5>
-                <p>{appointment.Date}</p>
-                <p>{appointment.Time}</p>
+                <h5>{appointment.title}</h5>
+                <p>{appointment.date}</p>
+                <p>{appointment.time}</p>
                 <button onClick={deleteButton}>X</button>
             </label>
         </div>

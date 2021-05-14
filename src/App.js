@@ -26,12 +26,14 @@ const fakeContacts = [
 const fakeAppointments = [
   {
     id: 1,
+    name: "alec",
     title: "Breakfast Reservation",
     date: '04/12/2022',
     time: "12:23"
   },
   {
     id: 2,
+    name: "kerim",
     title: "Dinner Reservation",
     date: '10/12/2050',
     time: "20:23"
@@ -83,7 +85,7 @@ function App() {
   const HandleSubmitAppointments = event => {
       event.preventDefault();
       setAppointments(prevAppointments => {
-        return [{id: generateId(), title: title, date: date, time: time}, ...prevAppointments]
+        return [{id: generateId(), title: title, name: name, date: date, time: time}, ...prevAppointments]
       })
     };
 
@@ -133,9 +135,11 @@ function App() {
         <div>
           <AppointmentForm 
           title={title}
+          name={name}
           date={date}
           time={time}
           handleTitleChange={handleTitleChange}
+          handleNameChange={handleNameChange}
           handleDateChange={handleDateChange}
           handleTimeChange={handleTimeChange}
           HandleSubmitAppointments={HandleSubmitAppointments}

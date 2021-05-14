@@ -4,9 +4,11 @@ export default function AppointmentForm(props) {
 
     const {
         title,
+        name,
         date,
         time,
         handleTitleChange,
+        handleNameChange,
         handleDateChange,
         handleTimeChange,
         HandleSubmitAppointments
@@ -18,6 +20,14 @@ export default function AppointmentForm(props) {
                 <div>
                     <label>Appointment Title</label>
                     <input type='text' name="title" value={title} onChange={handleTitleChange} required/>
+                </div>
+                <div>
+                    <label>Choose your travel companion</label>
+                    <input type="text" list="companion" name="companions"  value={name} onChange={handleNameChange} />
+                    <datalist id="companion">
+                        <option value="friend A"></option>
+                        <option value="friend B"></option>
+                    </datalist>
                 </div>
                 <div>
                     <label>Date</label>

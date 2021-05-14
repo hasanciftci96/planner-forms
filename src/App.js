@@ -138,6 +138,7 @@ function App() {
           name={name}
           date={date}
           time={time}
+          contacts={contacts}
           handleTitleChange={handleTitleChange}
           handleNameChange={handleNameChange}
           handleDateChange={handleDateChange}

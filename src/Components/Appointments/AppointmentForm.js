@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import NamesList from './Names/NamesList'
 
 export default function AppointmentForm(props) {
 
@@ -11,7 +12,8 @@ export default function AppointmentForm(props) {
         handleNameChange,
         handleDateChange,
         handleTimeChange,
-        HandleSubmitAppointments
+        HandleSubmitAppointments,
+        contacts
     } = props
 
     return (
@@ -25,8 +27,7 @@ export default function AppointmentForm(props) {
                     <label>Choose your travel companion</label>
                     <input type="text" list="companion" name="companions"  value={name} onChange={handleNameChange} />
                     <datalist id="companion">
-                        <option value="friend A"></option>
-                        <option value="friend B"></option>
+                        <NamesList contacts={contacts} />
                     </datalist>
                 </div>
                 <div>

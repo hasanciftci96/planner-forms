@@ -3,17 +3,18 @@ import React, { useEffect, useState, useRef } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Nav from './Nav'
+import ContactsList from './Components/Contacts/ContactsList'
 
 const fakeContacts = [
   {
     id: 1,
-    name: "Ervin Howell",
+    fullName: "Ervin Howell",
     phone: 1111111111,
     contactEmail: "1@gmail.com"
   },
   {
     id: 2,
-    name: "Leanne Graham",
+    fullName: "Leanne Graham",
     phone: 22222222222,
     contactEmail: "2@gmail.com"
   }
@@ -26,16 +27,26 @@ const fakeContacts = [
 
 function App() {
 
-  const [contacts, useContacts] = useState(fakeContacts)
+  const [contacts, setContacts] = useState(fakeContacts)
+
+
+
+
+  function deleteContact(id) {
+    setContacts(prev => prev.filter(contact => (contact.id !== id)))
+  }
+
 
   return (
     <Router>
       <div className="App">
         <Nav />
         <h1>Hello world</h1>
+        <div>
+          <ContactsList contacts={contacts} deleteContact={deleteContact} /> 
+        </div>
       </div>
     </Router>
-
   );
 }
 

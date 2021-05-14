@@ -17,7 +17,7 @@ export default function AppointmentForm(props) {
     } = props
 
     return (
-        <div>
+        <div id="appointment-form">
             <form onSubmit={HandleSubmitAppointments}>
                 <div>
                     <label>Appointment Title</label>

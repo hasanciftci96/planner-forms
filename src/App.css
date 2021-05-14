@@ -1,0 +1,38 @@
+.App {
+    text-align: center;
+  }
+  
+  nav {
+    width: 100%;
+    background-color: #fcfcfc;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .5px solid #6ab6cc;
+    position: fixed;
+    height: 54px;
+    top: 0;
+    z-index: 1;
+    align-items: center;
+  }
+  
+  nav li {
+    display: inline-flex;
+    color: #92b291;
+    text-decoration: underline;
+    margin: 0 1rem;
+  }
+
+  nav img {
+    height: 40px;
+    width: auto;
+    margin-left: 10px;
+    margin-top: 2px;
+  }
+
+  #contact-form {
+      margin-top: 80px;
+  }
+
+  #appointment-form {
+    margin-top: 80px;
+  }

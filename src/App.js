@@ -8,38 +8,6 @@ import AppointmentsList from './Components/Appointments/AppointmentsList'
 import ContactForm from './Components/Contacts/ContactForm'
 import AppointmentForm from './Components/Appointments/AppointmentForm'
 
-const fakeContacts = [
-  {
-    id: 1,
-    name: "Ervin Howell",
-    phone: 1111111111,
-    email: "1@gmail.com"
-  },
-  {
-    id: 2,
-    name: "Leanne Graham",
-    phone: 22222222222,
-    email: "2@gmail.com"
-  }
-]
-
-const fakeAppointments = [
-  {
-    id: 1,
-    name: "alec",
-    title: "Breakfast Reservation",
-    date: '04/12/2022',
-    time: "12:23"
-  },
-  {
-    id: 2,
-    name: "kerim",
-    title: "Dinner Reservation",
-    date: '10/12/2050',
-    time: "20:23"
-  }
-]
-
 const generateId = () => {
   let s4 = () => {
       return Math.floor((1 + Math.random()) * 0x10000)
@@ -53,8 +21,8 @@ const generateId = () => {
 function App() {
 
   //Higher level stuff
-  const [contacts, setContacts] = useState(fakeContacts)
-  const [appointments, setAppointments] = useState(fakeAppointments)
+  const [contacts, setContacts] = useState([])
+  const [appointments, setAppointments] = useState([])
 
   function deleteContact(id) {
     setContacts(prev => prev.filter(contact => (contact.id !== id)))
@@ -159,3 +127,5 @@ function App() {
 }
 
 export default App;
+
+

@@ -13,7 +13,7 @@ export default function ContactForm(props) {
     } = props
 
     return (
-        <div>
+        <div id="contact-form">
             <form onSubmit={handleSubmitContacts}>
                 <div>
                     <label>Contact Name</label>

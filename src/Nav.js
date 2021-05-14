@@ -9,9 +9,9 @@ export default function Nav() {
     };
 
     return (
-        <div>
+        <nav>
             <Link to='/' style={navStyle}>
-                <img src={img} alt='Our company logo' />
+                <img id="logo" src={img} alt='Our company logo' />
             </Link>
             <ul>
                 <Link to='/contacts' style={navStyle}>
@@ -21,6 +21,6 @@ export default function Nav() {
                     <li>Appointments</li>
                 </Link>
             </ul>
-        </div>
+        </nav>
     )
 }

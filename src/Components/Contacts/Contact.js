@@ -7,13 +7,13 @@ export default function Contact({contact, deleteContact}) {
     }
 
     return (
-        <div>
-            <label>
-                <h5>{contact.name}</h5>
-                <p>{contact.phone}</p>
-                <p>{contact.email}</p>
-                <button onClick={deleteButton}>X</button>
-            </label>
-        </div>
+        <label className="listed-items">
+            <div className='item'>
+                <p>Name: {contact.name}</p>
+                <p>Phone Number: {contact.phone}</p>
+                <p>Email: {contact.email}</p>
+                <button className="delete-button" onClick={deleteButton}>Delete</button>
+            </div>
+        </label>
     )
 }

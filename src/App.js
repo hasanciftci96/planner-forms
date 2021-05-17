@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import './App.css';
 import Nav from './Nav'
@@ -89,7 +89,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Nav />
         <Switch>
           <Route path='/contacts'>
@@ -102,6 +102,7 @@ function App() {
             handleEmailChange={handleEmailChange}
             handleSubmitContacts={handleSubmitContacts}
             />
+            <h1>List of Contacts:</h1>            
             <ContactsList contacts={contacts} deleteContact={deleteContact} />
           </Route>
 
@@ -118,6 +119,7 @@ function App() {
             handleTimeChange={handleTimeChange}
             HandleSubmitAppointments={HandleSubmitAppointments}
             />
+            <h1>List of Appointments:</h1>
             <AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment}/>
           </Route>
         </Switch>

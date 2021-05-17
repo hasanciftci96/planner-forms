@@ -1,7 +1,4 @@
-.App {
-    text-align: center;
-  }
-  
+
   nav {
     width: 100%;
     background-color: #fcfcfc;
@@ -29,10 +26,59 @@
     margin-top: 2px;
   }
 
-  #contact-form {
-      margin-top: 80px;
+  #forms {
+    background-color: red;
+    padding: 50px 100px;
+    border-top: 10px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  #appointment-form {
-    margin-top: 80px;
+  label, input {
+    display: block;
+    width: 100%;
+    margin: 6px;
+    font-size: medium;
   }
+
+  .form-inputs{
+    margin: 15px 0;
+  }
+
+  input {
+    padding: 2.5px 10px;
+  }
+
+  .submit-button {
+    display: block;
+    float: center;
+    margin-left: 6px;
+    margin-top: 15px;
+    padding: 5px 24px;
+    border: none;
+    background: orange;
+    color: white;
+    font-size: medium;
+    letter-spacing: 2px;
+  }
+
+  .listed-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: tan 2px solid;
+    border-bottom: tan 2px solid;
+
+
+  }
+
+  .delete-button {
+    float: right;
+    padding: 5px 15px;
+    margin-bottom: 10px;
+    background-color: tan;
+    border: none;
+
+  }
+

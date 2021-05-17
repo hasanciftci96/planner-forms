@@ -13,24 +13,23 @@ export default function ContactForm(props) {
     } = props
 
     return (
-        <div id="contact-form">
+        <div id="forms">
             <form onSubmit={handleSubmitContacts}>
-                <div>
+                <div className="form-inputs">
                     <label>Contact Name</label>
                     <input type='text' name='name' value={name} onChange={handleNameChange} required/>
                 </div>
-                <div>
+                <div className="form-inputs">
                     <label>Phone Number</label>
                     <input type='number' name='phone' value={phone} onChange={handlePhoneChange}/>
                 </div>
-                <div>
+                <div className="form-inputs">
                     <label>Email</label>
                     <input type='email' name='email' value={email} onChange={handleEmailChange}/>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" className="submit-button">Submit</button>
 
             </form>
-            <h1>This is my form for contacts</h1>
         </div>
     )
 }
